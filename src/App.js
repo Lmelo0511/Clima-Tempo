@@ -15,7 +15,7 @@ export const App = () => {
 
     try{
       const resposta = await API.get(`${input}/json`);
-      setCidade(resposta.data);
+      console.log(resposta);
     } catch {
       alert("Erro ao buscar a cidade! Verifique novamente.");
       setInput("");
@@ -24,7 +24,7 @@ export const App = () => {
 
   return(
     <>
-      <div>
+      <div className="preencherCidade">
 
         <input className="pesquisa" placeholder="Informe sua cidade: " value={input} onChange={(e) => setInput(e.target.value)}></input>
         <button className="botaoPesquisa" onClick={enviandoDados}><IoIosSearch color="white" size={30}/></button>

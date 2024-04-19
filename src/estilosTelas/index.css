@@ -1,3 +1,25 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
+    background-color:deepskyblue;
+}
+
+.preencherCidade{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.pesquisa{
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.botaoPesquisa{
+    border: none;
+    cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+    color: black;
+    font-size: 15px;
 }
