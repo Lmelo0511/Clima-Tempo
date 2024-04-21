@@ -1,20 +1,38 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
-    background-color:deepskyblue;
 }
 
 .preencherCidade{
+    justify-content: center;
+    margin: auto;
+    margin-top: 5%;
+    width: 20%;
+    padding: 5%;
+    background-color: deepskyblue;
+    border-radius: 10px;
+}
+
+.titulo{
+    text-align: center;
+    color: white;
+    background-color: deepskyblue;
+}
+
+.inputeEPesquisa{
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 5em;
 }
 
 .pesquisa{
     border: 2px solid white;
     border-radius: 10px;
+    width: 50%;
+    background-color: transparent;
 }
 
 .botaoPesquisa{
+    background-color: transparent;
     border: none;
     cursor: pointer;
 }
