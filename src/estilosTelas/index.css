@@ -1,14 +1,17 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url("../Imagens/nuvens-no-ceu-com-sol-e-nuvens_896360-20939.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;  
 }
 
 .preencherCidade{
-    justify-content: center;
     margin: auto;
     margin-top: 5%;
-    width: 20%;
+    width: fit-content;
     padding: 5%;
-    background-color: deepskyblue;
     border-radius: 10px;
 }
 
@@ -19,15 +22,15 @@
 }
 
 .inputeEPesquisa{
+    border-radius: 10px;
+    border: 2px solid white;
+    width: auto;
     display: flex;
-    justify-content: center;
-    margin-top: 5em;
 }
 
 .pesquisa{
-    border: 2px solid white;
-    border-radius: 10px;
-    width: 50%;
+    border: none;
+    width: -webkit-fill-available;
     background-color: transparent;
 }
 
@@ -40,4 +43,42 @@
 ::-webkit-input-placeholder {
     color: black;
     font-size: 15px;
+}
+
+.widgetInformacao1{
+    display: grid;
+    text-align: center;
+    background-color: deepskyblue;
+}
+
+.Temperatura{
+    font-size: 50px;
+}
+
+.maxEMin{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.umidadeEVento{
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.unidadeMedida,
+.unidadeMedida2{
+    font-size: 25px;
+    display: grid;
+    justify-content: flex-end;
+    margin-top: 1em;
+}
+
+.umidade,
+.vento,
+.visibilidade{
+    border-radius: 10px;
+    border: 2px solid white;
+    padding: 3%;
+    width: 40%;
 }
