@@ -75,10 +75,22 @@
 }
 
 .umidade,
-.vento,
-.visibilidade{
+.vento{
     border-radius: 10px;
     border: 2px solid white;
     padding: 3%;
     width: 40%;
+}
+
+.visibilidadeEPressao{
+    border-radius: 10px;
+    border: 2px solid white;
+    padding: 3%;
+    width: auto;
+}
+
+.unidadeMedida3{
+    font-size: 25px;
+    display: grid;
+    justify-content: flex-end;
 }

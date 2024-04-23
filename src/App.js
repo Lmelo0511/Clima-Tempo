@@ -63,10 +63,12 @@ export const App = () => {
           </div>
         </div>
         <br></br>
-        <div className="visibilidade">
-          <span><FaRegEye size={17} color="white"/>Visibilidade: </span>
-          <span className="unidadeMedida2">10000</span>
+        <div className="visibilidadeEPressao">
+          <span><FaRegEye size={17} color="white"/> Visibilidade: </span>
+          <span className="unidadeMedida3">10000</span>
+          <hr></hr>
           <span>Pressão: </span>
+          <span className="unidadeMedida3">1020</span>
         </div>
         <div className="pressao">
 
