@@ -4,10 +4,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;  
+    background-attachment: fixed;
 }
 
-.preencherCidade{
+.preencherCidade {
     margin: auto;
     margin-top: 5%;
     width: fit-content;
@@ -18,12 +18,12 @@
 .titulo{
     text-align: center;
     color: white;
-    background-color: deepskyblue;
 }
 
 .inputeEPesquisa{
     border-radius: 10px;
     border: 2px solid white;
+    padding: 3%;
     width: auto;
     display: flex;
 }
@@ -48,7 +48,6 @@
 .widgetInformacao1{
     display: grid;
     text-align: center;
-    background-color: deepskyblue;
 }
 
 .Temperatura{
@@ -66,6 +65,11 @@
     justify-content: space-between;
 }
 
+.resultado{
+    background: lightgray;
+    color: black;
+}
+
 .unidadeMedida,
 .unidadeMedida2{
     font-size: 25px;
@@ -80,13 +84,16 @@
     border: 2px solid white;
     padding: 3%;
     width: 40%;
+    background: lightgray;
 }
 
-.visibilidadeEPressao{
+.visibilidadeEPressao,
+.nuvens{
     border-radius: 10px;
     border: 2px solid white;
     padding: 3%;
     width: auto;
+    background: lightgray;
 }
 
 .unidadeMedida3{

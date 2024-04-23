@@ -3,10 +3,12 @@ import { IoIosSearch } from "react-icons/io";
 import axios from "axios"
 import { WiHumidity } from "react-icons/wi";
 import { FaRegEye } from "react-icons/fa";
+import { FaCloud } from "react-icons/fa";
 
 export const App = () => {
 
   const [input, setInput] = useState();
+  const [cidade, setCidade] = useState({});
   
   async function enviandoDados(e){
     
@@ -26,7 +28,8 @@ export const App = () => {
     
     try{
       const resposta = await API.get();
-      console.log(resposta);
+      setCidade(resposta.data);
+      console.log(resposta.data);
     } catch {
       alert("Erro ao buscar a cidade! Verifique novamente.");
       setInput("");
@@ -37,41 +40,43 @@ export const App = () => {
     <>
       <div className="preencherCidade">
         <div className="inputeEPesquisa">
-          <input className="pesquisa" placeholder="Informe sua cidade: " value={input} onChange={(e) => setInput(e.target.value)}></input>
-          <button className="botaoPesquisa" onClick={enviandoDados}><IoIosSearch color="white" size={30}/></button>
+          <input className="pesquisa resultado" placeholder="Informe sua cidade: " value={input} onChange={(e) => setInput(e.target.value)}></input>
+          <button className="botaoPesquisa resultado" onClick={enviandoDados}><IoIosSearch className="resultado" color="white" size={30}/></button>
         </div>
         <br></br>
         <div className="widgetInformacao1">
-          <span>Brasil - São Paulo</span>
-          <span className="Temperatura">25°</span>
-          <span>Nublado</span>
+          <span>{cidade.sys.country} - {cidade.name}</span>
+          <span className="Temperatura">{cidade.main.temp}</span>
+          <span>{cidade.weather[0].description}</span>
           <div className="maxEMin">
-            <span>Máx.: 26</span>
-            <span>Min.: 22</span>
+            <span>{cidade.main.temp_max}</span>
+            <span>{cidade.main.temp_min}</span>
           </div>
         </div>
         <br></br>
         <div className="umidadeEVento">
           <div className="umidade">
-            <span><WiHumidity color="white" size={17}/>Umidade:</span>
-            <span className="unidadeMedida">71%</span>
+            <span className="resultado"><WiHumidity className="resultado" color="white" size={25}/>Umidade:</span>
+            <span className="unidadeMedida resultado">{cidade.main.humidity}</span>
           </div>
           <div className="vento">
-            <span>0.76 km/h Vento</span>
+            <span className="resultado">{cidade.wind.deg}</span>
             <hr></hr>
-            <span>1.42 km/h Rajadas</span>
+            <span className="resultado">{cidade.wind.speed}</span>
           </div>
         </div>
         <br></br>
         <div className="visibilidadeEPressao">
-          <span><FaRegEye size={17} color="white"/> Visibilidade: </span>
-          <span className="unidadeMedida3">10000</span>
+          <span className="resultado"><FaRegEye className="resultado" size={17} color="white"/> Visibilidade: </span>
+          <span className="unidadeMedida3 resultado">{cidade.visibility}</span>
           <hr></hr>
-          <span>Pressão: </span>
-          <span className="unidadeMedida3">1020</span>
+          <span className="resultado">Pressão: </span>
+          <span className="unidadeMedida3 resultado">{cidade.main.pressure}</span>
         </div>
-        <div className="pressao">
-
+        <br></br>
+        <div className="nuvens">
+          <span className="resultado"><FaCloud className="resultado" size={17} color="white"/> Cobertura de Nuvens:</span>
+          <span className="unidadeMedida2 resultado">{cidade.clouds.all}</span>
         </div>
       </div>
     </>
