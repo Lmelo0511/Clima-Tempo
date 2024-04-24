@@ -8,8 +8,21 @@ import { FaCloud } from "react-icons/fa";
 export const App = () => {
 
   const [input, setInput] = useState();
-  const [cidade, setCidade] = useState({});
-  
+  const [cidade, setCidade] = useState();
+
+  const pais = cidade != null ? cidade.sys.country : "";
+  const city = cidade != null ? cidade.name : "";
+  const temperatura = cidade != null ? cidade.main.temp : "";
+  const estado = cidade != null ? cidade.weather[0].description : "";
+  const tempMax = cidade != null ? cidade.main.temp_max : "";
+  const tempMin = cidade != null ? cidade.main.temp_min : "";
+  const umidade = cidade != null ? cidade.main.humidity : "";
+  const velocidadeVento = cidade != null ? cidade.wind.speed : "";
+  const rajadasVento = cidade != null ? cidade.wind.deg : "";
+  const visibilidade = cidade != null ? cidade.visibility : "";
+  const pressao = cidade != null ? cidade.main.pressure : "";
+  const nuvens = cidade != null ? cidade.clouds.all : "";
+
   async function enviandoDados(e){
     
     const chaveURL = "25ef575f9e153a5836e6ca22640a992d"
@@ -29,7 +42,8 @@ export const App = () => {
     try{
       const resposta = await API.get();
       setCidade(resposta.data);
-      console.log(resposta.data);
+      console.log(resposta);
+      console.log(cidade)
     } catch {
       alert("Erro ao buscar a cidade! Verifique novamente.");
       setInput("");
@@ -39,48 +53,49 @@ export const App = () => {
   return(
     <>
       <div className="preencherCidade">
-        <div className="inputeEPesquisa">
+        <div className="inputeEPesquisa resultado">
           <input className="pesquisa resultado" placeholder="Informe sua cidade: " value={input} onChange={(e) => setInput(e.target.value)}></input>
           <button className="botaoPesquisa resultado" onClick={enviandoDados}><IoIosSearch className="resultado" color="white" size={30}/></button>
         </div>
         <br></br>
         <div className="widgetInformacao1">
-          <span>{cidade.sys.country} - {cidade.name}</span>
-          <span className="Temperatura">{cidade.main.temp}</span>
-          <span>{cidade.weather[0].description}</span>
+          <span>{pais} - {city}</span>
+          <span className="Temperatura">{temperatura}</span>
+          <span>{estado}</span>          
           <div className="maxEMin">
-            <span>{cidade.main.temp_max}</span>
-            <span>{cidade.main.temp_min}</span>
+            <span>Máx: {tempMax}</span>
+            <span>Min: {tempMin}</span>
           </div>
-        </div>
+        </div> 
         <br></br>
         <div className="umidadeEVento">
           <div className="umidade">
-            <span className="resultado"><WiHumidity className="resultado" color="white" size={25}/>Umidade:</span>
-            <span className="unidadeMedida resultado">{cidade.main.humidity}</span>
+            <span className="resultado"><WiHumidity className="resultado" color="white" size={17}/>Umidade:</span>
+            <span className="unidadeMedida resultado">{umidade}%</span>
           </div>
           <div className="vento">
-            <span className="resultado">{cidade.wind.deg}</span>
+            <span className="resultado">{velocidadeVento} km/h Vento</span>
             <hr></hr>
-            <span className="resultado">{cidade.wind.speed}</span>
+            <span className="resultado">{rajadasVento} Rajadas</span>
           </div>
         </div>
         <br></br>
         <div className="visibilidadeEPressao">
           <span className="resultado"><FaRegEye className="resultado" size={17} color="white"/> Visibilidade: </span>
-          <span className="unidadeMedida3 resultado">{cidade.visibility}</span>
+          <span className="unidadeMedida3 resultado">{visibilidade}</span>
           <hr></hr>
           <span className="resultado">Pressão: </span>
-          <span className="unidadeMedida3 resultado">{cidade.main.pressure}</span>
+          <span className="unidadeMedida3 resultado">{pressao}</span>
         </div>
         <br></br>
-        <div className="nuvens">
-          <span className="resultado"><FaCloud className="resultado" size={17} color="white"/> Cobertura de Nuvens:</span>
-          <span className="unidadeMedida2 resultado">{cidade.clouds.all}</span>
+        <div className="pressao">
+          <span className="resultado"><FaCloud className="resultado" size={17} color="white"/> Densidade de Nuvens:</span>
+          <span className="unidadeMedida2 resultado">{nuvens}%</span>
         </div>
       </div>
     </>
   )
+
 }
 
 export default App;
