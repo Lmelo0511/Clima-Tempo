@@ -1,14 +1,17 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import { IoIosSearch } from "react-icons/io";
 import axios from "axios"
 import { WiHumidity } from "react-icons/wi";
 import { FaRegEye } from "react-icons/fa";
 import { FaCloud } from "react-icons/fa";
+import { ContextoTema } from "./horario/ContextoTema";
 
 export const App = () => {
 
   const [input, setInput] = useState();
   const [cidade, setCidade] = useState();
+
+  const {estiloFundo} = useContext(ContextoTema);
 
   const pais = cidade != null ? cidade.sys.country : "";
   const city = cidade != null ? cidade.name : "";
@@ -51,7 +54,7 @@ export const App = () => {
   }
 
   return(
-    <>
+    <div style={estiloFundo}>
       <div className="preencherCidade">
         <div className="inputeEPesquisa resultado">
           <input className="pesquisa resultado" placeholder="Informe sua cidade: " value={input} onChange={(e) => setInput(e.target.value)}></input>
@@ -80,22 +83,24 @@ export const App = () => {
           </div>
         </div>
         <br></br>
-        <div className="visibilidadeEPressao">
-          <span className="resultado"><FaRegEye className="resultado" size={17} color="white"/> Visibilidade: </span>
-          <span className="unidadeMedida3 resultado">{visibilidade}</span>
-          <hr></hr>
-          <span className="resultado">Pressão: </span>
-          <span className="unidadeMedida3 resultado">{pressao}</span>
+        <div className="visibilidadeENuvens">        
+          <div className="visibilidadeEPressao">
+            <span className="resultado"><FaRegEye className="resultado" size={17} color="white"/> Visibilidade: </span>
+            <span className="unidadeMedida3 resultado">{visibilidade}</span>
+            <hr></hr>
+            <span className="resultado">Pressão: </span>
+            <span className="unidadeMedida3 resultado">{pressao}</span>
+          </div>
+          <br></br>
+          <div className="nuvens">
+            <span className="resultado"><FaCloud className="resultado" size={17} color="white"/> Densidade de Nuvens:</span>
+            <span className="unidadeMedida2 resultado">{nuvens}%</span>
+          </div>
         </div>
-        <br></br>
-        <div className="pressao">
-          <span className="resultado"><FaCloud className="resultado" size={17} color="white"/> Densidade de Nuvens:</span>
-          <span className="unidadeMedida2 resultado">{nuvens}%</span>
-        </div>
-      </div>
-    </>
-  )
 
+      </div>
+    </div>
+  )
 }
 
 export default App;
