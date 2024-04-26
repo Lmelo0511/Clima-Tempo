@@ -93,7 +93,7 @@ export const App = () => {
         
         <div className="umidadeEVento">
           <div className="umidade">
-            <span className="resultado"><WiHumidity className="resultado" color="white" size={17}/>Umidade:</span>
+            <span className="resultado"><WiHumidity className="resultado" color="white" size={25}/>Umidade:</span>
             <span className="unidadeMedida resultado">{umidade}%</span>
           </div>
           <div className="vento">
