@@ -54,23 +54,43 @@ export const App = () => {
   }
 
   return(
-    <div style={estiloFundo}>
+    <div className="corpo" style={estiloFundo}>
       <div className="preencherCidade">
         <div className="inputeEPesquisa resultado">
           <input className="pesquisa resultado" placeholder="Informe sua cidade: " value={input} onChange={(e) => setInput(e.target.value)}></input>
           <button className="botaoPesquisa resultado" onClick={enviandoDados}><IoIosSearch className="resultado" color="white" size={30}/></button>
         </div>
-        <br></br>
-        <div className="widgetInformacao1">
-          <span>{pais} - {city}</span>
-          <span className="Temperatura">{temperatura}</span>
-          <span>{estado}</span>          
-          <div className="maxEMin">
-            <span>Máx: {tempMax}</span>
-            <span>Min: {tempMin}</span>
+
+        <div className="infoContainer">
+          <div className="widgetInformacao1">
+            <span>{pais} - {city}</span>
+            <br></br>
+            <span className="Temperatura">{temperatura}</span>
+            <br></br>
+            <span>{estado}</span>          
+            <div className="maxEMin">
+              <span>Máx: {tempMax}</span>
+              <hr></hr>
+              <span>Min: {tempMin}</span>
+            </div>
+          </div> 
+
+          <div className="visibilidadeENuvens">
+            <div className="visibilidadeEPressao">
+              <span className="resultado"><FaRegEye className="resultado" size={17} color="white"/> Visibilidade: </span>
+              <span className="unidadeMedida3 resultado">{visibilidade}</span>
+              <hr></hr>
+              <span className="resultado">Pressão: </span>
+              <span className="unidadeMedida3 resultado">{pressao}</span>
+            </div>
+            <br></br>
+            <div className="nuvens">
+              <span className="resultado"><FaCloud className="resultado" size={17} color="white"/> Densidade de Nuvens:</span>
+              <span className="unidadeMedida2 resultado">{nuvens}%</span>
+            </div>
           </div>
-        </div> 
-        <br></br>
+        </div>
+        
         <div className="umidadeEVento">
           <div className="umidade">
             <span className="resultado"><WiHumidity className="resultado" color="white" size={17}/>Umidade:</span>
@@ -81,23 +101,7 @@ export const App = () => {
             <hr></hr>
             <span className="resultado">{rajadasVento} Rajadas</span>
           </div>
-        </div>
-        <br></br>
-        <div className="visibilidadeENuvens">        
-          <div className="visibilidadeEPressao">
-            <span className="resultado"><FaRegEye className="resultado" size={17} color="white"/> Visibilidade: </span>
-            <span className="unidadeMedida3 resultado">{visibilidade}</span>
-            <hr></hr>
-            <span className="resultado">Pressão: </span>
-            <span className="unidadeMedida3 resultado">{pressao}</span>
-          </div>
-          <br></br>
-          <div className="nuvens">
-            <span className="resultado"><FaCloud className="resultado" size={17} color="white"/> Densidade de Nuvens:</span>
-            <span className="unidadeMedida2 resultado">{nuvens}%</span>
-          </div>
-        </div>
-
+        </div> 
       </div>
     </div>
   )
