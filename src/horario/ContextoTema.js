@@ -23,7 +23,7 @@ export const ProvedorTema = ({children}) => {
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
         borderRadius: "10px",
-        height: "auto",
+        height: "100vh",
     };
 
     return (
