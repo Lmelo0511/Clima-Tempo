@@ -11,7 +11,7 @@ export const App = () => {
   const [input, setInput] = useState();
   const [cidade, setCidade] = useState();
 
-  const {estiloFundo} = useContext(ContextoTema);
+  const {estiloFundo, corWidget} = useContext(ContextoTema);
 
   const pais = cidade != null ? cidade.sys.country : "";
   const city = cidade != null ? cidade.name : "";
@@ -62,7 +62,7 @@ export const App = () => {
         </div>
 
         <div className="infoContainer">
-          <div className="widgetInformacao1">
+          <div className="widgetInformacao1" style={{color: corWidget}}>
             <span>{pais} - {city}</span>
             <br></br>
             <span className="Temperatura">{temperatura}</span>
